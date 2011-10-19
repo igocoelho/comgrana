@@ -1,12 +1,14 @@
 <grails>
   <resources>
     <resource>org.grails.appengine.AppEngineReloadController</resource>
-    <resource>BootStrap</resource>
-    <resource>BuildConfig</resource>
-    <resource>Config</resource>
-    <resource>DataSource</resource>
-    <resource>resources</resource>
+    <resource>br.com.igocoelho.comgrana.CategoriaController</resource>
     <resource>UrlMappings</resource>
+    <resource>Config</resource>
+    <resource>resources</resource>
+    <resource>DataSource</resource>
+    <resource>BuildConfig</resource>
+    <resource>BootStrap</resource>
+    <resource>br.com.igocoelho.comgrana.Categoria</resource>
   </resources>
   <plugins>
     <plugin>AppEngineGrailsPlugin</plugin>
