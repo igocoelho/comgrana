@@ -22,7 +22,11 @@
                         
                    	        <g:sortableColumn property="id" title="Id" />
                         
+                   	        <g:sortableColumn property="codigo" title="Codigo" />
+                        
                    	        <g:sortableColumn property="nome" title="Nome" />
+                        
+                   	        <g:sortableColumn property="tipo" title="Tipo" />
                         
                         </tr>
                     </thead>
@@ -32,7 +36,11 @@
                         
                             <td><g:link action="show" id="${categoriaInstance.id}">${fieldValue(bean:categoriaInstance, field:'id')}</g:link></td>
                         
+                            <td>${fieldValue(bean:categoriaInstance, field:'codigo')}</td>
+                        
                             <td>${fieldValue(bean:categoriaInstance, field:'nome')}</td>
+                        
+                            <td>${fieldValue(bean:categoriaInstance, field:'tipo')}</td>
                         
                         </tr>
                     </g:each>

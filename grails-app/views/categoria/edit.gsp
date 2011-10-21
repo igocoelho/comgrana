@@ -30,10 +30,28 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                    <label for="codigo">Codigo:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:categoriaInstance,field:'codigo','errors')}">
+                                    <g:textField name="codigo" value="${categoriaInstance?.codigo}" />
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                     <label for="nome">Nome:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean:categoriaInstance,field:'nome','errors')}">
                                     <g:textField name="nome" value="${categoriaInstance?.nome}" />
+                                </td>
+                            </tr> 
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="tipo">Tipo:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean:categoriaInstance,field:'tipo','errors')}">
+                                    <g:select name="tipo" from="${br.com.igocoelho.comgrana.TipoCategoria?.values()}" optionKey="key" value="${categoriaInstance?.tipo}"  />
                                 </td>
                             </tr> 
                         

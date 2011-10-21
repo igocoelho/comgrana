@@ -29,9 +29,23 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name">Codigo:</td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean:categoriaInstance, field:'codigo')}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name">Nome:</td>
                             
                             <td valign="top" class="value">${fieldValue(bean:categoriaInstance, field:'nome')}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name">Tipo:</td>
+                            
+                            <td valign="top" class="value">${categoriaInstance?.tipo?.encodeAsHTML()}</td>
                             
                         </tr>
                     
