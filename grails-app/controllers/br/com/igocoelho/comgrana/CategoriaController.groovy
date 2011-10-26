@@ -1,27 +1,14 @@
-
-
 package br.com.igocoelho.comgrana
 
 class CategoriaController {
     
-    def index = { redirect(action:list,params:params) }
+    def index = { redirect(action: list, params: params) }
 
-    // the delete, save and update actions only accept POST requests
     static allowedMethods = [delete:'POST', save:'POST', update:'POST']
 
     def list = {
         params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
         [ categoriaInstanceList: Categoria.list( params ), categoriaInstanceTotal: Categoria.count() ]
-    }
-
-    def show = {
-        def categoriaInstance = Categoria.get( params.id )
-
-        if(!categoriaInstance) {
-            flash.message = "Categoria not found with id ${params.id}"
-            redirect(action:list)
-        }
-        else { return [ categoriaInstance : categoriaInstance ] }
     }
 
     def delete = {
@@ -30,16 +17,16 @@ class CategoriaController {
 	        if(categoriaInstance) {
 	            try {
 	                categoriaInstance.delete(flush:true)
-	                flash.message = "Categoria ${params.id} deleted"
+	                flash.message = "Categoria deletada com sucesso."
 	                redirect(action:list)
 	            }
 	            catch(org.springframework.dao.DataIntegrityViolationException e) {
-	                flash.message = "Categoria ${params.id} could not be deleted"
-	                redirect(action:show,id:params.id)
+	                flash.message = "Categoria não pode ser deletada."
+	                redirect(action:list)
 	            }
 	        }
 	        else {
-	            flash.message = "Categoria not found with id ${params.id}"
+	            flash.message = "Categoria não localizada."
 	            redirect(action:list)
 	        }			
 		}
@@ -49,7 +36,7 @@ class CategoriaController {
         def categoriaInstance = Categoria.get( params.id )
 
         if(!categoriaInstance) {
-            flash.message = "Categoria not found with id ${params.id}"
+            flash.message = "Categoria não localizada."
             redirect(action:list)
         }
         else {
@@ -61,26 +48,17 @@ class CategoriaController {
 		Categoria.withTransaction {
 	        def categoriaInstance = Categoria.get( params.id )
 	        if(categoriaInstance) {
-	            if(params.version) {
-	                def version = params.version.toLong()
-	                if(categoriaInstance.version > version) {
-	                    
-	                    categoriaInstance.errors.rejectValue("version", "categoria.optimistic.locking.failure", "Another user has updated this Categoria while you were editing.")
-	                    render(view:'edit',model:[categoriaInstance:categoriaInstance])
-	                    return
-	                }
-	            }
 	            categoriaInstance.properties = params
 	            if(!categoriaInstance.hasErrors() && categoriaInstance.save()) {
-	                flash.message = "Categoria ${params.id} updated"
-	                redirect(action:show,id:categoriaInstance.id)
+	                flash.message = "Categoria atualizada com sucesso."
+	                redirect(action:list)
 	            }
 	            else {
 	                render(view:'edit',model:[categoriaInstance:categoriaInstance])
 	            }
 	        }
 	        else {
-	            flash.message = "Categoria not found with id ${params.id}"
+	            flash.message = "Categoria não localizada."
 	            redirect(action:list)
 	        }			
 		}
@@ -96,8 +74,8 @@ class CategoriaController {
         def categoriaInstance = new Categoria(params)
 		Categoria.withTransaction {
 	        if(categoriaInstance.save(flush:true)) {
-	            flash.message = "Categoria ${categoriaInstance.id} created"
-	            redirect(action:show,id:categoriaInstance.id)
+	            flash.message = "Categoria criada com sucesso."
+	            redirect(action:create)
 	        }
 	        else {
 	            render(view:'create',model:[categoriaInstance:categoriaInstance])
