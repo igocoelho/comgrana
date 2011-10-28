@@ -19,8 +19,8 @@ class Categoria implements Serializable {
     @Enumerated(EnumType.STRING)
     TipoCategoria tipo
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    Usuario usuario
+    @Basic
+    Long usuarioId
 
     static constraints = {
     	id visible:false

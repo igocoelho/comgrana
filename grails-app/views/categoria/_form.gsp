@@ -59,9 +59,8 @@
                                 <td valign="top" class="name">
                                     <label for="usuario">Usuario:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean:categoriaInstance,field:'usuario','errors')}">
-                                    <g:hiddenField name="usuario.id" value="6" />
-                                    <!--g:select name="usuario.id" from="${br.com.igocoelho.comgrana.Usuario.list()}" optionKey="id" value="${categoriaInstance?.usuario?.id}"  /-->
+                                <td valign="top" class="value ${hasErrors(bean:categoriaInstance,field:'usuarioId','errors')}">
+                                    <g:select name="usuarioId" from="${br.com.igocoelho.comgrana.Usuario.list()}" optionKey="id" value="${categoriaInstance?.usuarioId}"  />
                                 </td>
                             </tr> 
                         

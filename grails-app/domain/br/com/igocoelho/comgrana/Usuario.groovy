@@ -1,14 +1,13 @@
 package br.com.igocoelho.comgrana
 
 import javax.persistence.*;
-import com.google.appengine.api.datastore.Key;
 
 @Entity
 class Usuario implements Serializable {
 
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Key id
+	Long id
 
     @Basic
     String nome
