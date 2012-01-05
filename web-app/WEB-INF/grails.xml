@@ -1,18 +1,21 @@
 <grails>
   <resources>
     <resource>org.grails.appengine.AppEngineReloadController</resource>
-    <resource>br.com.igocoelho.comgrana.CategoriaController</resource>
+    <resource>br.com.igocoelho.comgrana.SiteController</resource>
     <resource>br.com.igocoelho.comgrana.UsuarioController</resource>
+    <resource>br.com.igocoelho.comgrana.AcessoController</resource>
+    <resource>br.com.igocoelho.comgrana.CategoriaController</resource>
     <resource>br.com.igocoelho.comgrana.MovimentacaoController</resource>
-    <resource>UrlMappings</resource>
-    <resource>Config</resource>
-    <resource>resources</resource>
-    <resource>DataSource</resource>
-    <resource>BuildConfig</resource>
-    <resource>BootStrap</resource>
     <resource>br.com.igocoelho.comgrana.Movimentacao</resource>
-    <resource>br.com.igocoelho.comgrana.Categoria</resource>
     <resource>br.com.igocoelho.comgrana.Usuario</resource>
+    <resource>br.com.igocoelho.comgrana.Categoria</resource>
+    <resource>DataSource</resource>
+    <resource>UrlMappings</resource>
+    <resource>BuildConfig</resource>
+    <resource>resources</resource>
+    <resource>Config</resource>
+    <resource>AcessoFilters</resource>
+    <resource>BootStrap</resource>
   </resources>
   <plugins>
     <plugin>AppEngineGrailsPlugin</plugin>
