@@ -1,0 +1,6 @@
+development:
+  sessions:
+    default:
+      database: comgrana
+      hosts:
+        - localhost:27017
