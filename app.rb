@@ -53,6 +53,12 @@ get '/app/categories' do
   { :success => true, :total => @categories.size, :data => @categories }.to_json
 end
 
+get '/app/subcategories/:id' do
+  content_type 'application/json'
+  @subcategories = Subcategory.where(:category_id => params[:id]).asc(:name)
+  { :success => true, :total => @subcategories.size, :data => @subcategories }.to_json
+end
+
 get '/app/transactions' do
   content_type 'application/json'
   @transactions = Transaction.where(:date.gte => Date.parse('2013-10-01'), :date.lte => Date.parse('2013-10-31')).asc(:date)
